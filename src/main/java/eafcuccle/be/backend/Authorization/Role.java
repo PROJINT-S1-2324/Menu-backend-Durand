@@ -17,13 +17,23 @@ public class Role {
     @ElementCollection
     @Column(name = "permision")
     @CollectionTable(name = "role_permision", joinColumns = @JoinColumn(name = "role_id"))
+    @Enumerated(EnumType.STRING)
     private Set<Permision> permisions = new LinkedHashSet<>();
 
     public Set<Permision> getPermisions() {
         return permisions;
     }
 
+    @Column(name = "name", nullable = false, unique = true)
+    private String name;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Integer getId() {
         return id;
