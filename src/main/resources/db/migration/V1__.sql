@@ -18,14 +18,15 @@ CREATE TABLE plat
 
 CREATE TABLE `role`
 (
-    id INT NOT NULL,
+    id   INT          NOT NULL,
+    name VARCHAR(255) NOT NULL,
     CONSTRAINT pk_role PRIMARY KEY (id)
 );
 
 CREATE TABLE role_permision
 (
     role_id   INT NOT NULL,
-    permision SMALLINT NULL
+    permision VARCHAR(255) NULL
 );
 
 CREATE TABLE user
@@ -41,6 +42,9 @@ CREATE TABLE user_roles
     user_id  INT NOT NULL,
     CONSTRAINT pk_user_roles PRIMARY KEY (roles_id, user_id)
 );
+
+ALTER TABLE `role`
+    ADD CONSTRAINT uc_role_name UNIQUE (name);
 
 ALTER TABLE user
     ADD CONSTRAINT uc_user_user UNIQUE (user_id);

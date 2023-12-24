@@ -18,7 +18,7 @@ public class Commande {
 
     @ManyToOne
     @JoinColumn(name = "plat_id", nullable = false)
-    @JsonBackReference
+   // @JsonBackReference
     private Plat plat;
 
     private int quantite;
@@ -26,7 +26,7 @@ public class Commande {
     private double prixPlat;
     public String getNomPlat() {
         return nomPlat;
-    }
+   }
     public void setNomPlat(String nomPlat) {
         this.nomPlat = nomPlat;
     }
@@ -38,6 +38,8 @@ public class Commande {
     public void setPrixPlat(double prixPlat) {
         this.prixPlat = prixPlat;
     }
+
+
     public Commande() {
     }
     public Commande( Plat plat, int quantite) {

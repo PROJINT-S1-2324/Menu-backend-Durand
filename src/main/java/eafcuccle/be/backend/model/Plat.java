@@ -16,9 +16,9 @@ public class Plat {
     private String nom;
     private double prix;
 
-    @OneToMany(mappedBy = "plat", cascade = CascadeType.ALL)
-    @JsonBackReference
-    private List<Commande> commandes;
+    //@OneToMany(mappedBy = "plat", cascade = CascadeType.ALL)
+  //  @JsonBackReference
+//    private List<Commande> commandes;
 
     public Plat() {
     }
@@ -52,11 +52,11 @@ public class Plat {
         this.prix = prix;
     }
 
-    public List<Commande> getCommandes() {
-        return commandes;
-    }
+    //public List<Commande> getCommandes() {
+      //  return commandes;
+   // }
 
-    public void setCommandes(List<Commande> commandes) {
-        this.commandes = commandes;
-    }
+    //public void setCommandes(List<Commande> commandes) {
+      //  this.commandes = commandes;
+    //}
 }
