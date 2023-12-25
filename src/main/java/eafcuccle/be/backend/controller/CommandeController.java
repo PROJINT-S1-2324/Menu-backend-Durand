@@ -48,7 +48,7 @@ public class CommandeController {
 public ResponseEntity<List<Commande>> getAllCommandes(
         Authentication authentication,
         @RequestParam(defaultValue = "0") int page,
-        @RequestParam(defaultValue = "10") int pageSize
+        @RequestParam(defaultValue = "100") int pageSize
 ) {
     String userId = authentication.getName();
     User user = getUserOrCreate(userId);
@@ -77,7 +77,7 @@ public ResponseEntity<List<Commande>> getAllCommandes(
     }
 
 
-    // Endpoint pour créer une nouvelle commande
+
     @PostMapping("/commande")
     public ResponseEntity<Commande> ajouterCommande(@RequestBody Commande commande) {
 
@@ -92,7 +92,7 @@ public ResponseEntity<List<Commande>> getAllCommandes(
         return new ResponseEntity<>(commandes, HttpStatus.OK);
     }
 */
-    // Endpoint pour récupérer une commande par son ID
+
     @GetMapping("/{commandeId}")
     public ResponseEntity<Commande> getCommandeById(@PathVariable Long commandeId) {
         return commandeRepository.findById(commandeId)

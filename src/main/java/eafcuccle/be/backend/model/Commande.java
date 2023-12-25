@@ -22,7 +22,7 @@ public class Commande {
     private Plat plat;
 
     private int quantite;
-    private String nomPlat;
+    /*private String nomPlat;
     private double prixPlat;
     public String getNomPlat() {
         return nomPlat;
@@ -38,8 +38,7 @@ public class Commande {
     public void setPrixPlat(double prixPlat) {
         this.prixPlat = prixPlat;
     }
-
-
+*/
     public Commande() {
     }
     public Commande( Plat plat, int quantite) {

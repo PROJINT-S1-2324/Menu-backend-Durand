@@ -1,0 +1,1 @@
+docker run -it --rm -v "$(pwd):/usr/src/mymaven" -w /usr/src/mymaven maven:3-amazoncorretto-17 mvn -B -DskipTests=true clean package

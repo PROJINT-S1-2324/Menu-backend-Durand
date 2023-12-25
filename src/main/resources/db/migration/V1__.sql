@@ -3,8 +3,6 @@ CREATE TABLE commande
     id       BIGINT AUTO_INCREMENT NOT NULL,
     plat_id  BIGINT NOT NULL,
     quantite INT    NOT NULL,
-    nom_plat VARCHAR(255) NULL,
-    prix_plat DOUBLE NOT NULL,
     CONSTRAINT pk_commande PRIMARY KEY (id)
 );
 
