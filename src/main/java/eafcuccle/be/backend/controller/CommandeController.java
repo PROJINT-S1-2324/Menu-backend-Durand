@@ -26,6 +26,7 @@ import org.slf4j.LoggerFactory;
 @RestController
 
 public class CommandeController {
+    private static final Logger logger = LoggerFactory.getLogger(CommandeController.class);
     @Autowired
     private PlatRepository platRepository;
 
@@ -60,9 +61,10 @@ public ResponseEntity<List<Commande>> getAllCommandes(
         Page<Commande> commandesPage = commandeRepository.findAll(pageable);
 
         List<Commande> commandes = commandesPage.getContent();
-
+        logger.info("Liste des commandes récupérée avec succès. Nombre de commandes : {}", commandes.size());
         return new ResponseEntity<>(commandes, HttpStatus.OK);
     } else {
+        logger.warn("L'utilisateur n'est pas autorisé à accéder à la liste des commandes.");
         return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
 }
@@ -85,6 +87,7 @@ public ResponseEntity<List<Commande>> getAllCommandes(
 
         // Si les données sont valides, ajoutez la commande à la base de données
         Commande nouveauCommande = commandeRepository.save(commande);
+        logger.info("Nouvelle commande ajoutée avec succès. ID de commande : {}", nouveauCommande.getId());
         return ResponseEntity.ok(nouveauCommande);
     }
     // Endpoint pour récupérer toutes les commandes
