@@ -1,9 +1,9 @@
 package eafcuccle.be.backend.controller;
 
 import eafcuccle.be.backend.Authorization.Permision;
+import eafcuccle.be.backend.Authorization.Role;
 import eafcuccle.be.backend.Authorization.User;
 import eafcuccle.be.backend.Authorization.UserRepository;
-import eafcuccle.be.backend.model.Commande;
 import eafcuccle.be.backend.model.Plat;
 import eafcuccle.be.backend.repository.PlatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +31,7 @@ public class PlatController {
     private UserRepository userRepository;
     @PostMapping("/plat")
     public ResponseEntity<Plat> ajouterPlat(@RequestBody Plat plat, Authentication authentication) {
+
         String userId=authentication.getName();
         User user = getUserOrCreate(userId);
         if (user.isAllowedTo(Permision.WRITE_MEU)) {

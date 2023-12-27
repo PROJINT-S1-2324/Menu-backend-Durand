@@ -73,8 +73,10 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.1.0</version>
+            <version>5.10.1</version> <!-- Mettez à jour la version ici -->
+            <scope>test</scope>
         </dependency>
+
 
         <!-- Dépendance Logback pour la journalisation dans toute l'application -->
         <dependency>
