@@ -1,9 +1,6 @@
 package eafcuccle.be.backend.model;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Entity
 @Table(name = "commande")
@@ -18,27 +15,11 @@ public class Commande {
 
     @ManyToOne
     @JoinColumn(name = "plat_id", nullable = false)
-   // @JsonBackReference
+
     private Plat plat;
 
     private int quantite;
-    /*private String nomPlat;
-    private double prixPlat;
-    public String getNomPlat() {
-        return nomPlat;
-   }
-    public void setNomPlat(String nomPlat) {
-        this.nomPlat = nomPlat;
-    }
 
-    public double getPrixPlat() {
-        return prixPlat;
-    }
-
-    public void setPrixPlat(double prixPlat) {
-        this.prixPlat = prixPlat;
-    }
-*/
     public Commande() {
     }
     public Commande( Plat plat, int quantite) {
