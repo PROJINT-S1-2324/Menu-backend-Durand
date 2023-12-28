@@ -62,14 +62,6 @@ public class PlatController {
         return new ResponseEntity<>(plat, HttpStatus.OK);
     }
 
-    /*
-    @PostMapping("/plat")
-    public ResponseEntity<Plat> ajouterPlat(@RequestBody Plat plat) {
-        Plat nouveauPlat = platRepository.save(plat);
-        return new ResponseEntity<>(nouveauPlat, HttpStatus.CREATED);
-    }
-
-     */
 }
 
 
