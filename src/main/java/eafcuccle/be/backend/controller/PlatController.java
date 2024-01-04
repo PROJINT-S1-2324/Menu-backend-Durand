@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 import java.util.Optional;
 import org.slf4j.Logger;
@@ -21,7 +22,7 @@ import org.slf4j.LoggerFactory;
 
 
 @RestController
-
+@RequestMapping("/api/plat")
 public class PlatController {
     private static final Logger logger = LoggerFactory.getLogger(PlatController.class);
 
@@ -29,7 +30,7 @@ public class PlatController {
     private PlatRepository platRepository;
     @Autowired
     private UserRepository userRepository;
-    @PostMapping("/plat")
+    @PostMapping()
     public ResponseEntity<Plat> ajouterPlat(@RequestBody Plat plat, Authentication authentication) {
 
         String userId=authentication.getName();
@@ -55,7 +56,7 @@ public class PlatController {
         }
     }
 
-    @GetMapping("/plat")
+    @GetMapping()
     public ResponseEntity<List<Plat>> getPlats() {
         List<Plat> plat = platRepository.findAll();
         logger.info("Liste des plats récupérée avec succès. Nombre de plats : {}", plat.size());
