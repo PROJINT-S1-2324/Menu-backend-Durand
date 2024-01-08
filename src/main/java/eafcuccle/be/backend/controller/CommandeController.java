@@ -24,7 +24,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/api/commande")
 public class CommandeController {
     private static final Logger logger = LoggerFactory.getLogger(CommandeController.class);
     @Autowired
@@ -47,7 +47,7 @@ public class CommandeController {
     }
 }
 */
-@GetMapping("commande")
+@GetMapping()
 public ResponseEntity<List<Commande>> getAllCommandes(
         Authentication authentication,
         @RequestParam(defaultValue = "0") int page,
@@ -82,7 +82,7 @@ public ResponseEntity<List<Commande>> getAllCommandes(
 
 
 
-    @PostMapping("commande")
+    @PostMapping()
     public ResponseEntity<Commande> ajouterCommande(@RequestBody Commande commande) {
 
         // Si les données sont valides, ajoutez la commande à la base de données
@@ -105,7 +105,7 @@ public ResponseEntity<List<Commande>> getAllCommandes(
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @DeleteMapping("commandeDelete/{commandeId}")
+    @DeleteMapping("/{commandeId}")
     public ResponseEntity<Void> supprimerCommande(@PathVariable Long commandeId, Authentication authentication) {
         String userId = authentication.getName();
         User user = getUserOrCreate(userId);
